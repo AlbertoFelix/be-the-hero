@@ -42,19 +42,25 @@ module.exports = {
     const { id } = request.params;
     const ong_id = request.headers.authorization;
 
-    const incident = await connection("incidents")
-      .where("id", id)
-      .select("ong_id")
-      .first();
-
-    if (incident.ong_id !== ong_id) {
-      return response.status(401).json({ error: "Operation not permitted." });
-    } else {
-      await connection("incidents")
+    try {
+      const incident = await connection("incidents")
         .where("id", id)
-        .delete();
+        .select("ong_id")
+        .first();
 
-      return response.status(204).send();
+      if (incident.ong_id !== ong_id) {
+        return response.status(401).json({ error: "Operation not permitted." });
+      } else {
+        await connection("incidents")
+          .where("id", id)
+          .delete();
+
+        return response.status(204).send();
+      }
+    } catch (err) {
+      return response
+        .status(400)
+        .json({ error: `Incident ${id} does not exist` });
     }
   }
 };
