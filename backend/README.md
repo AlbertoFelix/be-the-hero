@@ -1,4 +1,4 @@
-## Dicas para Deploy da aplicação NodeJs
+# Dicas para Deploy da aplicação NodeJs
 
 Heroku tem um ótimo plano free para aplicações só para teste.  
 [Vídeo da rocketseat ensinando fazer o deploy](https://www.youtube.com/watch?v=-j7vLmBMsEU)

@@ -1,4 +1,4 @@
-## Dicas para Deploy da aplicação ReactJs
+# Dicas para Deploy da aplicação ReactJs
 
 netlify é específico para Front-end pois possui uma grande integração de frameworks(Vue, React, Angular, ...) e o processo de deploy é simples e gerenciado pelo próprio servidor.
 
